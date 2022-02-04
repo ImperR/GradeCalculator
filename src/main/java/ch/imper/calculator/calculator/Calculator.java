@@ -1,5 +1,6 @@
 package ch.imper.calculator.calculator;
 
+import ch.imper.calculator.uni.Module;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.HBox;
 
@@ -14,15 +15,15 @@ import java.util.List;
  */
 public class Calculator {
 
-  public List<Double> calculateAverage(List<HBox> hBoxList) {
+  public List<Double> calculateAverage(List<Module> modules) {
     List<Double> averageGrades = new ArrayList<>();
-    List<Double> grades = getAllGrades(hBoxList);
-    List<Double> group1Grades = getGroup1Grades(hBoxList);
-    List<Double> group2Grades = getGroup2Grades(hBoxList);
+    List<Double> grades = getAllGrades(modules);
+    List<Double> group1Grades = getGroup1Grades(modules);
+    List<Double> group2Grades = getGroup2Grades(modules);
     averageGrades.add(calculateAverageGrade(grades));
     averageGrades.add(calculateAverageGrade(group1Grades));
     averageGrades.add(calculateAverageGrade(group2Grades));
-   return averageGrades;
+    return averageGrades;
   }
 
   private Double calculateAverageGrade(List<Double> grades) {
@@ -33,36 +34,31 @@ public class Calculator {
     return average / grades.size();
   }
 
-  private List<Double> getAllGrades(List<HBox> hBoxList) {
+  private List<Double> getAllGrades(List<Module> modules) {
     List<Double> grades = new ArrayList<>();
-    for (HBox hBox : hBoxList) {
-      ComboBox<Double> grade = (ComboBox<Double>) hBox.getChildren().get(3);
-      grades.add(grade.getValue());
+    for (Module module : modules) {
+      grades.add(module.getGrade());
     }
     return grades;
   }
 
-  private List<Double> getGroup1Grades(List<HBox> hBoxList) {
+  private List<Double> getGroup1Grades(List<Module> modules) {
     List<Double> grades = new ArrayList<>();
-    for (HBox hBox : hBoxList) {
-      ComboBox<String> groupBox = (ComboBox<String>) hBox.getChildren().get(2);
-      String group = groupBox.getValue();
+    for (Module module : modules) {
+      String group = module.getGroup();
       if (group.equals("IT1") || group.equals("IT3") || group.equals("IT5")) {
-        ComboBox<Double> grade = (ComboBox<Double>) hBox.getChildren().get(3);
-        grades.add(grade.getValue());
+        grades.add(module.getGrade());
       }
     }
     return grades;
   }
 
-  private List<Double> getGroup2Grades(List<HBox> hBoxList) {
+  private List<Double> getGroup2Grades(List<Module> modules) {
     List<Double> grades = new ArrayList<>();
-    for (HBox hBox : hBoxList) {
-      ComboBox<String> groupBox = (ComboBox<String>) hBox.getChildren().get(2);
-      String group = groupBox.getValue();
+    for (Module module : modules) {
+      String group = module.getGroup();
       if (group.equals("IT2") || group.equals("IT4") || group.equals("IT6")) {
-        ComboBox<Double> grade = (ComboBox<Double>) hBox.getChildren().get(3);
-        grades.add(grade.getValue());
+        grades.add(module.getGrade());
       }
     }
     return grades;

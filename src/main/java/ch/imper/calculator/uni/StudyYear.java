@@ -32,6 +32,13 @@ public class StudyYear {
     return semester2;
   }
 
+  public List<Module> getAllModules() {
+    List<Module> modules = new ArrayList<>();
+    modules.addAll(semester1.getModuleList());
+    modules.addAll(semester2.getModuleList());
+    return modules;
+  }
+
   public void setSemester1(Semester semester1) {
     this.semester1 = semester1;
   }

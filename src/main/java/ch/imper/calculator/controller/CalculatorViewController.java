@@ -7,8 +7,10 @@ import ch.imper.calculator.uni.Module;
 import ch.imper.calculator.uni.Semester;
 import ch.imper.calculator.uni.StudyYear;
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
@@ -30,14 +32,10 @@ import java.util.List;
  */
 public class CalculatorViewController {
   public static final String SPLIT_REGEX = ";";
-//  private static final String IT = "IT";
   private static final int AMOUNT_OF_CREDITS = 30;
   private final FileChooser fileChooser;
-  private final List<HBox> moduleList;
-  //  private final List<Module> modules;
   private final Calculator calculator;
   private StudyYear year;
-  private int modulePerSemester;
 
   @FXML
   private Label gradeAverage;
@@ -84,8 +82,6 @@ public class CalculatorViewController {
 
 
   public CalculatorViewController() {
-    moduleList = new ArrayList<>();
-//    modules = new ArrayList<>();
     calculator = new Calculator();
     fileChooser = new FileChooser();
   }
@@ -95,7 +91,6 @@ public class CalculatorViewController {
     initializeStudyCourseBox();
     initializeStudyYearBox();
     setStudyTemplate();
-//    addModuleBox();
   }
 
   private void initializeStudyCourseBox() {
@@ -174,49 +169,10 @@ public class CalculatorViewController {
     semesterBox2.getChildren().add(sep2);
   }
 
-  private void addModuleBox() {
-    semesterBox1.getChildren().clear();
-    moduleList.clear();
-//    modules.clear();
-    int moduleNumber = 1;
-    semesterBox1.getChildren().add(new Separator());
-    while (moduleNumber <= modulePerSemester) {
-      HBox hBox = new HBox(10);
-      hBox.setPadding(new Insets(5, 0, 0, 0));
-      hBox.getChildren().add(addModuleName("Modulname"));
-      hBox.getChildren().add(addCreditsLabel(4));
-      hBox.getChildren().add(addModuleGroupLabel("IT1"));
-      hBox.getChildren().add(addGradeBox(4.0));
-      moduleList.add(hBox);
-//      modules.add(new Module(addTextField().getText(),
-//          addCreditBox().getValue(),
-//          addModuleGroupBox().getValue(),
-//          addGradeBox().getValue()));
-      moduleNumber++;
-    }
-//    addModulesToBox();
-    semesterBox1.getChildren().addAll(moduleList);
-    Separator separator = new Separator();
-    separator.setPadding(new Insets(5, 0, 0, 0));
-    semesterBox1.getChildren().add(separator);
-  }
-
   private void clearSemesterBoxes() {
     semesterBox1.getChildren().clear();
     semesterBox2.getChildren().clear();
   }
-
-//  private void addModulesToBox() {
-//    for (Module module : modules) {
-//      HBox hBox = new HBox(10);
-//      hBox.setPadding(new Insets(5,0,0,0));
-//      hBox.getChildren().add(addTextField());
-//      hBox.getChildren().add(addCreditBox());
-//      hBox.getChildren().add(addModuleGroupBox());
-//      hBox.getChildren().add(addGradeBox());
-//      moduleBox.getChildren().add(hBox);
-//    }
-//  }
 
   private Label addModuleName(String name) {
     Label modulNameLabel = new Label(name);
@@ -239,28 +195,6 @@ public class CalculatorViewController {
     return groupLabel;
   }
 
-  private void setGroupForSemester(ComboBox<String> moduleGroupBox) {
-    int nr = 1;
-//    if (semesterBox.getValue() <= 2) {
-//      moduleGroupBox.getItems().add(IT + nr);
-//      moduleGroupBox.getItems().add(IT + (nr + 1));
-//      group1AverageLabel.setText("  " + IT + nr);
-//      group2AverageLabel.setText("  " + IT + (nr + 1));
-//    } else if (semesterBox.getValue() == 3 || semesterBox.getValue() == 4) {
-//      nr = 3;
-//      moduleGroupBox.getItems().add(IT + nr);
-//      moduleGroupBox.getItems().add(IT + (nr + 1));
-//      group1AverageLabel.setText("  " + IT + nr);
-//      group2AverageLabel.setText("  " + IT + (nr + 1));
-//    } else {
-//      nr = 5;
-//      moduleGroupBox.getItems().add(IT + nr);
-//      moduleGroupBox.getItems().add(IT + (nr + 1));
-//      group1AverageLabel.setText("  " + IT + nr);
-//      group2AverageLabel.setText("  " + IT + (nr + 1));
-//    }
-  }
-
   private ComboBox<Double> addGradeBox(double grade) {
     ComboBox<Double> gradeBox = new ComboBox<>();
     gradeBox.setPrefWidth(60);
@@ -270,73 +204,66 @@ public class CalculatorViewController {
     gradeBox.setValue(grade);
     return gradeBox;
   }
-//
-//  @FXML
-//  void setMaxModules() {
-//    switch (semesterBox.getValue()) {
-//      case 1:
-//      case 2:
-//      case 3:
-//      case 5:
-//        modulePerSemester = 8;
-//        break;
-//      case 4:
-//        modulePerSemester = 9;
-//        break;
-//      case 6:
-//        modulePerSemester = 6;
-//        break;
-//    }
-//    addModuleBox();
-//  }
 
   @FXML
-  void calculateGrades() throws CalculatorException {
-//    if (areCreditsOkay()) {
-//      List<Double> gradeList = calculator.calculateAverage(moduleList);
-//      if (gradeList.size() != 3) {
-//        throw new CalculatorException(String.format("There have to be 3 Grades but it is %d", gradeList.size()));
-//      }
-//      gradeAverage.setText(String.format("%.2f", gradeList.get(0)));
-//      gradeAverage.setStyle("-fx-text-fill: black");
-//      group1Average.setText(String.format("%.2f", gradeList.get(1)));
-//      group2Average.setText(String.format("%.2f", gradeList.get(2)));
-//    } else {
-//      gradeAverage.setText("Anzahl Credits stimmen nicht!");
-//      gradeAverage.setStyle("-fx-text-fill: red");
-//    }
-  }
-
-  private boolean areCreditsOkay() {
-//    int credits = 0;
-//    for (HBox hBox : moduleList) {
-//      ComboBox<Integer> creditBox = (ComboBox<Integer>) hBox.getChildren().get(1);
-//      credits += creditBox.getValue();
-//    }
-//    return credits == AMOUNT_OF_CREDITS;
-    return true;
-  }
-
-  @FXML
-  void saveGrades() throws IOException {
-    List<String> lines = FileHelper.getLinesFromList(moduleList);
-    fileChooser.setTitle("Speichern");
-    File file = fileChooser.showSaveDialog(null);
-    if (!FileHelper.saveFile(file, lines)) {
-      gradeAverage.setText("File konnte nicht gespeichert werden");
+  void calculateGrades() {
+    if (areCreditsOkay()) {
+      List<Double> averageGradesList = calculator.calculateAverage(year.getAllModules());
+      List<Double> averageSem1List = calculator.calculateAverage(year.getSemester1().getModuleList());
+      List<Double> averageSem2List = calculator.calculateAverage(year.getSemester2().getModuleList());
+      showGradesOnUI(averageGradesList, averageSem1List, averageSem2List);
+    } else {
+      gradeAverage.setText("Anzahl der Credits stimmen nicht!");
       gradeAverage.setStyle("-fx-text-fill: red");
     }
   }
 
+  private void showGradesOnUI(List<Double> averageGradesList, List<Double> averageSem1List, List<Double> averageSem2List) {
+    gradeAverage.setStyle("-fx-text-fill: black");
+    gradeAverage.setText(String.format("%.2f", averageGradesList.get(0)));
+    group1Average.setText(String.format("%.2f", averageGradesList.get(1)));
+    group2Average.setText(String.format("%.2f", averageGradesList.get(2)));
+
+    gradeAverageSem1.setText(String.format("%.2f", averageSem1List.get(0)));
+    group1AverageSem1.setText(String.format("%.2f", averageSem1List.get(1)));
+    group2AverageSem1.setText(String.format("%.2f", averageSem1List.get(2)));
+
+    gradeAverageSem2.setText(String.format("%.2f", averageSem2List.get(0)));
+    group1AverageSem2.setText(String.format("%.2f", averageSem2List.get(1)));
+    group2AverageSem2.setText(String.format("%.2f", averageSem2List.get(2)));
+  }
+
+  private boolean areCreditsOkay() {
+    int credits = 0;
+    for (Module module : year.getSemester1().getModuleList()) {
+      credits += module.getCredits();
+    }
+    for (Module module : year.getSemester2().getModuleList()) {
+      credits += module.getCredits();
+    }
+    return credits % AMOUNT_OF_CREDITS == 0;
+  }
+
+  @FXML
+  void saveGrades() throws IOException {
+//    List<String> lines = FileHelper.getLinesFromList(moduleList);
+//    fileChooser.setTitle("Speichern");
+//    File file = fileChooser.showSaveDialog(null);
+//    if (!FileHelper.saveFile(file, lines)) {
+//      gradeAverage.setText("File konnte nicht gespeichert werden");
+//      gradeAverage.setStyle("-fx-text-fill: red");
+//    }
+  }
+
   @FXML
   void loadOwnGrades() throws CalculatorException {
-    fileChooser.setInitialDirectory(new File("C:"));
-    fileChooser.setTitle("Laden");
-    File file = fileChooser.showOpenDialog(null);
-    List<String> lines = FileHelper.loadFile(file);
-    modulePerSemester = lines.size();
-    addModuleBox();
-    addTemplateValues(lines);
+//    fileChooser.setInitialDirectory(new File("C:"));
+//    fileChooser.setTitle("Laden");
+//    File file = fileChooser.showOpenDialog(null);
+//    List<String> lines = FileHelper.loadFile(file);
+//    modulePerSemester = lines.size();
+//    addModuleBox();
+//    addTemplateValues(lines);
   }
 
   @FXML
@@ -398,50 +325,11 @@ public class CalculatorViewController {
 //    addTemplateValuess(modules);
   }
 
-  private void addTemplateValues(List<String> lines) throws CalculatorException {
-//    if (lines.size() != moduleList.size()) {
-//      throw new CalculatorException("Not correct amount of Modules for Semester " + semesterBox.getValue() + "!");
-//    }
-    for (int i = 0; i < moduleList.size(); i++) {
-      HBox hBox = moduleList.get(i);
-      String[] line = lines.get(i).split(SPLIT_REGEX);
-      TextField modulName = (TextField) hBox.getChildren().get(0);
-      ComboBox<Integer> credits = (ComboBox<Integer>) hBox.getChildren().get(1);
-      ComboBox<String> group = (ComboBox<String>) hBox.getChildren().get(2);
-      ComboBox<Double> grade = (ComboBox<Double>) hBox.getChildren().get(3);
-      modulName.setText(line[0].trim());
-      credits.setValue(Integer.valueOf(line[1].trim()));
-      group.setValue(line[2].trim());
-      grade.setValue(Double.valueOf(line[3]));
-    }
-  }
-
-//  private void addTemplateValuess(List<Module> modules) throws CalculatorException {
-//    if (modules.size() != moduleList.size()) {
-//      throw new CalculatorException("Not correct amount of Modules for Semester " + semesterBox.getValue() + "!");
-//    }
-//    for (int i = 0; i < moduleList.size(); i++) {
-//      HBox hBox = moduleList.get(i);
-//      Module module = modules.get(i);
-////      String[] line = modules.get(i).split(SPLIT_REGEX);
-//      TextField modulName = (TextField) hBox.getChildren().get(0);
-//      ComboBox<Integer> credits = (ComboBox<Integer>) hBox.getChildren().get(1);
-//      ComboBox<String> group = (ComboBox<String>) hBox.getChildren().get(2);
-//      ComboBox<Double> grade = (ComboBox<Double>) hBox.getChildren().get(3);
-//      modulName.setText(module.getName());
-//      credits.setValue(module.getCredits());
-//      group.setValue(module.getGroup());
-//      grade.setValue(module.getGrade());
-//    }
-//  }
-
   @FXML
   void resetGrades1() {
-    addModuleBox();
   }
 
   @FXML
   void resetGrades2() {
-    addModuleBox();
   }
 }
