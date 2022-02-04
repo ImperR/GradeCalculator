@@ -28,6 +28,12 @@ public class Semester {
     return Collections.unmodifiableList(moduleList);
   }
 
+  public List<String> getLinesForSaving() {
+    List<String> lines = new ArrayList<>();
+
+    return lines;
+  }
+
   public int getSemesterNr() {
     return semesterNr;
   }

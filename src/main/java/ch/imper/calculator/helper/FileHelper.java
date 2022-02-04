@@ -68,18 +68,27 @@ public class FileHelper {
     return lines;
   }
 
-  public static List<String> getLinesFromList(List<HBox> moduleList) {
+//  public static List<String> getLinesFromList(List<HBox> moduleList) {
+//    List<String> lines = new ArrayList<>();
+//    String name;
+//    int credits;
+//    String group;
+//    double grade;
+//    for (HBox hBox : moduleList) {
+//      name = ((TextField) hBox.getChildren().get(0)).getText();
+//      credits = ((ComboBox<Integer>) hBox.getChildren().get(1)).getValue();
+//      group = ((ComboBox<String>) hBox.getChildren().get(2)).getValue();
+//      grade = ((ComboBox<Double>) hBox.getChildren().get(3)).getValue();
+//      lines.add(String.format("%s; %d; %s; %.1f;", name, credits, group, grade));
+//    }
+//    return lines;
+//  }
+
+  public static List<String> getLinesFromList(List<Module> moduleList) {
     List<String> lines = new ArrayList<>();
-    String name;
-    int credits;
-    String group;
-    double grade;
-    for (HBox hBox : moduleList) {
-      name = ((TextField) hBox.getChildren().get(0)).getText();
-      credits = ((ComboBox<Integer>) hBox.getChildren().get(1)).getValue();
-      group = ((ComboBox<String>) hBox.getChildren().get(2)).getValue();
-      grade = ((ComboBox<Double>) hBox.getChildren().get(3)).getValue();
-      lines.add(String.format("%s; %d; %s; %.1f;", name, credits, group, grade));
+    for (Module module : moduleList) {
+      lines.add(String.format("%s; %d; %s; %.1f;", module.getName(), module.getCredits(),
+          module.getGroup(), module.getGrade()));
     }
     return lines;
   }

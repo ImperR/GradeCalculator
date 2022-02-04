@@ -39,6 +39,13 @@ public class StudyYear {
     return modules;
   }
 
+  public List<String> getLinesForSaving() {
+    List<String> lines = new ArrayList<>();
+    lines.addAll(semester1.getLinesForSaving());
+    lines.addAll(semester2.getLinesForSaving());
+    return lines;
+  }
+
   public void setSemester1(Semester semester1) {
     this.semester1 = semester1;
   }

@@ -291,13 +291,18 @@ public class CalculatorViewController {
 
   @FXML
   void saveGrades() throws IOException {
-//    List<String> lines = FileHelper.getLinesFromList(moduleList);
-//    fileChooser.setTitle("Speichern");
-//    File file = fileChooser.showSaveDialog(null);
-//    if (!FileHelper.saveFile(file, lines)) {
-//      gradeAverage.setText("File konnte nicht gespeichert werden");
-//      gradeAverage.setStyle("-fx-text-fill: red");
-//    }
+    List<String> lines = FileHelper.getLinesFromList(year.getSemester1().getModuleList());
+    lines.add("");
+    lines.addAll(FileHelper.getLinesFromList(year.getSemester2().getModuleList()));
+    for (String line : lines) {
+      System.out.println(line);
+    }
+    fileChooser.setTitle("Speichern");
+    File file = fileChooser.showSaveDialog(null);
+    if (!FileHelper.saveFile(file, lines)) {
+      gradeAverage.setText("File konnte nicht gespeichert werden");
+      gradeAverage.setStyle("-fx-text-fill: red");
+    }
   }
 
   @FXML
