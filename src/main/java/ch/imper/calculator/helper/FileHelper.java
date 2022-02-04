@@ -1,7 +1,8 @@
 package ch.imper.calculator.helper;
 
 import ch.imper.calculator.CalculatorUI;
-import ch.imper.calculator.Module;
+import ch.imper.calculator.controller.CalculatorViewController;
+import ch.imper.calculator.module.Module;
 import ch.imper.calculator.logger.CalculatorLogger;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -9,7 +10,6 @@ import javafx.scene.layout.HBox;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
@@ -47,7 +47,7 @@ public class FileHelper {
     try {
       Scanner scanner = new Scanner(template, StandardCharsets.ISO_8859_1);
       while (scanner.hasNextLine()) {
-        String[] line = scanner.nextLine().split(";");
+        String[] line = scanner.nextLine().split(CalculatorViewController.SPLIT_REGEX);
         Module module = new Module(line[0].trim(), Integer.parseInt(line[1].trim()), line[2].trim(), Double.parseDouble(line[3].trim()));
         lines.add(module);
       }

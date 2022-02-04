@@ -1,4 +1,4 @@
-package ch.imper.calculator;
+package ch.imper.calculator.module;
 
 /**
  * //ToDo Description of what this class does.

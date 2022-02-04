@@ -1,4 +1,4 @@
-package ch.imper.calculator;
+package ch.imper.calculator.exception;
 
 /**
  * Signalr that a specific action has been conducted when not possible.
