@@ -12,11 +12,9 @@ import java.util.List;
  */
 public class Semester {
   private final List<Module> moduleList;
-  private int semesterNr;
 
-  public Semester(int semesterNr) {
+  public Semester() {
     moduleList = new ArrayList<>();
-    this.semesterNr = semesterNr;
   }
 
   public void addModules(List<Module> modules) {
@@ -26,20 +24,6 @@ public class Semester {
 
   public List<Module> getModuleList() {
     return Collections.unmodifiableList(moduleList);
-  }
-
-  public List<String> getLinesForSaving() {
-    List<String> lines = new ArrayList<>();
-
-    return lines;
-  }
-
-  public int getSemesterNr() {
-    return semesterNr;
-  }
-
-  public void setSemesterNr(int semesterNr) {
-    this.semesterNr = semesterNr;
   }
 
   public void clearModuleList() {

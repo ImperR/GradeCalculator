@@ -1,7 +1,5 @@
 package ch.imper.calculator;
 
-
-import ch.imper.calculator.controller.CalculatorViewController;
 import javafx.application.Application;
 
 /**

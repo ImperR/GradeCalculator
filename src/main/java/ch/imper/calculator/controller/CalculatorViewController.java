@@ -145,8 +145,8 @@ public class CalculatorViewController {
       linesOfYear = FileHelper.loadTemplate(course.getAcronym(), year);
     }
     int semester = year*2;
-    Semester semester1 = new Semester(semester-1);
-    Semester semester2 = new Semester(semester);
+    Semester semester1 = new Semester();
+    Semester semester2 = new Semester();
     semester1.addModules(getSemester(true, linesOfYear));
     semester2.addModules(getSemester(false, linesOfYear));
     this.year = new StudyYear(course, semester1, semester2);

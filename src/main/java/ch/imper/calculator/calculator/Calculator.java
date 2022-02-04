@@ -1,8 +1,6 @@
 package ch.imper.calculator.calculator;
 
 import ch.imper.calculator.uni.Module;
-import javafx.scene.control.ComboBox;
-import javafx.scene.layout.HBox;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -10,9 +10,9 @@ import java.util.List;
  * @version 1.0
  */
 public class StudyYear {
-  private StudyCourse course;
-  private Semester semester1;
-  private Semester semester2;
+  private final StudyCourse course;
+  private final Semester semester1;
+  private final Semester semester2;
 
   public StudyYear(StudyCourse course, Semester semester1, Semester semester2) {
     this.course = course;
@@ -37,25 +37,6 @@ public class StudyYear {
     modules.addAll(semester1.getModuleList());
     modules.addAll(semester2.getModuleList());
     return modules;
-  }
-
-  public List<String> getLinesForSaving() {
-    List<String> lines = new ArrayList<>();
-    lines.addAll(semester1.getLinesForSaving());
-    lines.addAll(semester2.getLinesForSaving());
-    return lines;
-  }
-
-  public void setSemester1(Semester semester1) {
-    this.semester1 = semester1;
-  }
-
-  public void setSemester2(Semester semester2) {
-    this.semester2 = semester2;
-  }
-
-  public void setCourse(StudyCourse course) {
-    this.course = course;
   }
 
   public StudyCourse findCourse(String pattern) {

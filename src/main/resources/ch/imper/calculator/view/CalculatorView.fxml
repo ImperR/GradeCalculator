@@ -33,43 +33,41 @@
 -->
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.input.KeyCodeCombination?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.imper.calculator.controller.CalculatorViewController">
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0"
+            prefWidth="1000.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ch.imper.calculator.controller.CalculatorViewController">
    <top>
       <MenuBar prefHeight="26.0" BorderPane.alignment="CENTER">
-        <menus>
-          <Menu mnemonicParsing="false" text="Datei">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#saveGrades" text="Speichern">
+         <menus>
+            <Menu mnemonicParsing="false" text="Datei">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#saveGrades" text="Speichern">
                      <accelerator>
-                        <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
-                     </accelerator></MenuItem>
+                        <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP"
+                                            shortcut="UP"/>
+                     </accelerator>
+                  </MenuItem>
                   <MenuItem mnemonicParsing="false" onAction="#loadOwnGrades" text="Öffnen">
                      <accelerator>
-                        <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
-                     </accelerator></MenuItem>
-                  <SeparatorMenuItem mnemonicParsing="false" />
-                  <SeparatorMenuItem mnemonicParsing="false" />
+                        <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP"
+                                            shortcut="UP"/>
+                     </accelerator>
+                  </MenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false"/>
+                  <SeparatorMenuItem mnemonicParsing="false"/>
                   <MenuItem mnemonicParsing="false" onAction="#closeApp" text="Schliessen">
                      <accelerator>
-                        <KeyCodeCombination alt="UP" code="Q" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
-                     </accelerator></MenuItem>
-            </items>
-          </Menu>
-        </menus>
+                        <KeyCodeCombination alt="UP" code="Q" control="DOWN" meta="UP" shift="UP"
+                                            shortcut="UP"/>
+                     </accelerator>
+                  </MenuItem>
+               </items>
+            </Menu>
+         </menus>
       </MenuBar>
    </top>
    <center>
@@ -81,33 +79,36 @@
                      <children>
                         <Label fx:id="semester1" prefWidth="80.0" text="Semester 1">
                            <font>
-                              <Font name="System Bold" size="14.0" />
+                              <Font name="System Bold" size="14.0"/>
                            </font>
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="480.0" spacing="10.0">
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="480.0"
+                        spacing="10.0">
                      <children>
                         <Label prefWidth="90.0" text="Studiengang">
                            <font>
-                              <Font name="System Bold" size="14.0" />
+                              <Font name="System Bold" size="14.0"/>
                            </font>
                         </Label>
-                        <ComboBox fx:id="studyCourseBox" onAction="#setStudyTemplate" prefWidth="60.0" />
+                        <ComboBox fx:id="studyCourseBox" onAction="#setStudyTemplate" prefWidth="60.0"/>
                         <Label layoutX="100.0" layoutY="13.0" prefWidth="90.0" text="Studienjahr">
                            <font>
-                              <Font name="System Bold" size="14.0" />
+                              <Font name="System Bold" size="14.0"/>
                            </font>
                         </Label>
-                        <ComboBox fx:id="studyYearBox" layoutX="190.0" layoutY="10.0" onAction="#setStudyTemplate" prefWidth="60.0" />
-                        <Button mnemonicParsing="false" onAction="#loadOwnGrades" text="Eigene Vorlage laden" />
+                        <ComboBox fx:id="studyYearBox" layoutX="190.0" layoutY="10.0"
+                                  onAction="#setStudyTemplate" prefWidth="60.0"/>
+                        <Button mnemonicParsing="false" onAction="#loadOwnGrades" text="Eigene Vorlage laden"/>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_RIGHT" layoutX="340.0" layoutY="10.0" prefHeight="100.0" prefWidth="240.0">
+                  <HBox alignment="CENTER_RIGHT" layoutX="340.0" layoutY="10.0" prefHeight="100.0"
+                        prefWidth="240.0">
                      <children>
                         <Label fx:id="semester2" prefWidth="80.0" text="Semester 2">
                            <font>
-                              <Font name="System Bold" size="14.0" />
+                              <Font name="System Bold" size="14.0"/>
                            </font>
                         </Label>
                      </children>
@@ -122,70 +123,70 @@
                            <children>
                               <Label prefWidth="270.0" text="Modul">
                                  <font>
-                                    <Font name="System Bold" size="14.0" />
+                                    <Font name="System Bold" size="14.0"/>
                                  </font>
                               </Label>
                               <Label layoutX="239.0" layoutY="50.0" prefWidth="60.0" text="Credits">
                                  <font>
-                                    <Font name="System Bold" size="14.0" />
+                                    <Font name="System Bold" size="14.0"/>
                                  </font>
                               </Label>
                               <Label layoutX="375.0" layoutY="12.0" prefWidth="60.0" text="Gruppe">
                                  <font>
-                                    <Font name="System Bold" size="14.0" />
+                                    <Font name="System Bold" size="14.0"/>
                                  </font>
                               </Label>
                               <Label layoutX="260.0" layoutY="50.0" prefWidth="60.0" text="Note">
                                  <font>
-                                    <Font name="System Bold" size="14.0" />
+                                    <Font name="System Bold" size="14.0"/>
                                  </font>
                               </Label>
                            </children>
                            <VBox.margin>
-                              <Insets />
+                              <Insets/>
                            </VBox.margin>
                         </HBox>
-                        <VBox fx:id="semesterBox1" prefHeight="330.0" prefWidth="487.0" />
+                        <VBox fx:id="semesterBox1" prefHeight="330.0" prefWidth="487.0"/>
                      </children>
                   </VBox>
-                  <Separator orientation="VERTICAL" prefHeight="310.0" />
+                  <Separator orientation="VERTICAL" prefHeight="310.0"/>
                   <VBox layoutX="10.0" layoutY="10.0" prefHeight="350.0" prefWidth="500.0" spacing="5.0">
                      <children>
                         <HBox alignment="CENTER" prefHeight="24.0" prefWidth="480.0" spacing="10.0">
                            <children>
                               <Label prefWidth="270.0" text="Modul">
                                  <font>
-                                    <Font name="System Bold" size="14.0" />
+                                    <Font name="System Bold" size="14.0"/>
                                  </font>
                               </Label>
                               <Label layoutX="239.0" layoutY="50.0" prefWidth="60.0" text="Credits">
                                  <font>
-                                    <Font name="System Bold" size="14.0" />
+                                    <Font name="System Bold" size="14.0"/>
                                  </font>
                               </Label>
                               <Label layoutX="375.0" layoutY="12.0" prefWidth="60.0" text="Gruppe">
                                  <font>
-                                    <Font name="System Bold" size="14.0" />
+                                    <Font name="System Bold" size="14.0"/>
                                  </font>
                               </Label>
                               <Label layoutX="260.0" layoutY="50.0" prefWidth="60.0" text="Note">
                                  <font>
-                                    <Font name="System Bold" size="14.0" />
+                                    <Font name="System Bold" size="14.0"/>
                                  </font>
                               </Label>
                            </children>
                            <VBox.margin>
-                              <Insets />
+                              <Insets/>
                            </VBox.margin>
                         </HBox>
-                        <VBox fx:id="semesterBox2" prefHeight="330.0" prefWidth="487.0" />
+                        <VBox fx:id="semesterBox2" prefHeight="330.0" prefWidth="487.0"/>
                      </children>
                   </VBox>
                </children>
             </HBox>
          </children>
          <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
          </padding>
       </VBox>
    </center>
@@ -194,17 +195,22 @@
          <children>
             <HBox alignment="CENTER" prefHeight="25.0" prefWidth="980.0" spacing="180.0">
                <children>
-                  <Button layoutX="496.0" layoutY="10.0" mnemonicParsing="false" onAction="#resetGrades1" text="Noten Zurücksetzten" />
+                  <Button layoutX="496.0" layoutY="10.0" mnemonicParsing="false" onAction="#resetGrades1"
+                          text="Noten Zurücksetzten"/>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#calculateGrades" prefWidth="72.0" text="Berechnen" />
-                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#saveGrades" prefWidth="72.0" text="Speichern" />
+                        <Button mnemonicParsing="false" onAction="#calculateGrades" prefWidth="72.0"
+                                text="Berechnen"/>
+                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#saveGrades"
+                                prefWidth="72.0" text="Speichern"/>
                      </children>
                   </HBox>
-                  <Button layoutX="345.0" layoutY="10.0" mnemonicParsing="false" onAction="#resetGrades2" text="Noten Zurücksetzten" />
+                  <Button layoutX="345.0" layoutY="10.0" mnemonicParsing="false" onAction="#resetGrades2"
+                          text="Noten Zurücksetzten"/>
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="51.0" prefHeight="25.0" prefWidth="980.0" spacing="5.0">
+            <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="51.0" prefHeight="25.0" prefWidth="980.0"
+                  spacing="5.0">
                <children>
                   <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="315.0" spacing="10.0">
                      <children>
@@ -212,130 +218,138 @@
                            <children>
                               <Label prefWidth="132.0" text="Durchschnitt Semester:">
                                  <font>
-                                    <Font name="System Bold" size="12.0" />
+                                    <Font name="System Bold" size="12.0"/>
                                  </font>
                               </Label>
-                              <Label fx:id="gradeAverageSem1" prefWidth="173.0" />
+                              <Label fx:id="gradeAverageSem1" prefWidth="173.0"/>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0" spacing="10.0">
                            <children>
                               <Label prefWidth="100.0" text="Durchschnitt ">
                                  <font>
-                                    <Font name="System Bold" size="12.0" />
+                                    <Font name="System Bold" size="12.0"/>
                                  </font>
                               </Label>
-                              <Label fx:id="group1AverageLabel1" layoutX="10.0" layoutY="14.0" prefWidth="22.0" text="IT1:">
+                              <Label fx:id="group1AverageLabel1" layoutX="10.0" layoutY="14.0"
+                                     prefWidth="22.0" text="IT1:">
                                  <font>
-                                    <Font name="System Bold" size="12.0" />
+                                    <Font name="System Bold" size="12.0"/>
                                  </font>
                               </Label>
-                              <Label fx:id="group1AverageSem1" prefWidth="173.0" />
+                              <Label fx:id="group1AverageSem1" prefWidth="173.0"/>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0" spacing="10.0">
                            <children>
                               <Label prefWidth="100.0" text="Durchschnitt ">
                                  <font>
-                                    <Font name="System Bold" size="12.0" />
+                                    <Font name="System Bold" size="12.0"/>
                                  </font>
                               </Label>
-                              <Label fx:id="group2AverageLabel1" layoutX="10.0" layoutY="14.0" prefWidth="22.0" text="IT2:">
+                              <Label fx:id="group2AverageLabel1" layoutX="10.0" layoutY="14.0"
+                                     prefWidth="22.0" text="IT2:">
                                  <font>
-                                    <Font name="System Bold" size="12.0" />
+                                    <Font name="System Bold" size="12.0"/>
                                  </font>
                               </Label>
-                              <Label fx:id="group2AverageSem1" prefWidth="173.0" />
+                              <Label fx:id="group2AverageSem1" prefWidth="173.0"/>
                            </children>
                         </HBox>
                      </children>
                   </VBox>
-                  <Separator orientation="VERTICAL" prefHeight="200.0" />
-                  <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="315.0" spacing="10.0">
+                  <Separator orientation="VERTICAL" prefHeight="200.0"/>
+                  <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="315.0"
+                        spacing="10.0">
                      <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0" spacing="10.0">
                            <children>
                               <Label prefWidth="122.0" text="Durchschnitt gesamt:">
                                  <font>
-                                    <Font name="System Bold" size="12.0" />
+                                    <Font name="System Bold" size="12.0"/>
                                  </font>
                               </Label>
-                              <Label fx:id="gradeAverage" prefWidth="183.0" />
+                              <Label fx:id="gradeAverage" prefWidth="183.0"/>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0" spacing="10.0">
                            <children>
                               <Label prefWidth="90.0" text="Durchschnitt ">
                                  <font>
-                                    <Font name="System Bold" size="12.0" />
+                                    <Font name="System Bold" size="12.0"/>
                                  </font>
                               </Label>
-                              <Label fx:id="group1AverageLabel" layoutX="10.0" layoutY="14.0" prefWidth="22.0" text="IT1:">
+                              <Label fx:id="group1AverageLabel" layoutX="10.0" layoutY="14.0" prefWidth="22.0"
+                                     text="IT1:">
                                  <font>
-                                    <Font name="System Bold" size="12.0" />
+                                    <Font name="System Bold" size="12.0"/>
                                  </font>
                               </Label>
-                              <Label fx:id="group1Average" prefWidth="183.0" />
+                              <Label fx:id="group1Average" prefWidth="183.0"/>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0" spacing="10.0">
                            <children>
                               <Label prefWidth="90.0" text="Durchschnitt ">
                                  <font>
-                                    <Font name="System Bold" size="12.0" />
+                                    <Font name="System Bold" size="12.0"/>
                                  </font>
                               </Label>
-                              <Label fx:id="group2AverageLabel" layoutX="10.0" layoutY="14.0" prefWidth="22.0" text="IT2:">
+                              <Label fx:id="group2AverageLabel" layoutX="10.0" layoutY="14.0" prefWidth="22.0"
+                                     text="IT2:">
                                  <font>
-                                    <Font name="System Bold" size="12.0" />
+                                    <Font name="System Bold" size="12.0"/>
                                  </font>
                               </Label>
-                              <Label fx:id="group2Average" prefWidth="183.0" />
+                              <Label fx:id="group2Average" prefWidth="183.0"/>
                            </children>
                         </HBox>
                      </children>
                   </VBox>
-                  <Separator layoutX="984.0" layoutY="10.0" orientation="VERTICAL" prefHeight="200.0" />
-                  <VBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="315.0" spacing="10.0">
+                  <Separator layoutX="984.0" layoutY="10.0" orientation="VERTICAL" prefHeight="200.0"/>
+                  <VBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="315.0"
+                        spacing="10.0">
                      <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0" spacing="10.0">
                            <children>
                               <Label prefWidth="132.0" text="Durchschnitt Semester:">
                                  <font>
-                                    <Font name="System Bold" size="12.0" />
+                                    <Font name="System Bold" size="12.0"/>
                                  </font>
                               </Label>
-                              <Label fx:id="gradeAverageSem2" prefWidth="173.0" />
+                              <Label fx:id="gradeAverageSem2" prefWidth="173.0"/>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0" spacing="10.0">
                            <children>
                               <Label prefWidth="100.0" text="Durchschnitt ">
                                  <font>
-                                    <Font name="System Bold" size="12.0" />
+                                    <Font name="System Bold" size="12.0"/>
                                  </font>
                               </Label>
-                              <Label fx:id="group1AverageLabel2" layoutX="10.0" layoutY="14.0" prefWidth="22.0" text="IT1:">
+                              <Label fx:id="group1AverageLabel2" layoutX="10.0" layoutY="14.0"
+                                     prefWidth="22.0" text="IT1:">
                                  <font>
-                                    <Font name="System Bold" size="12.0" />
+                                    <Font name="System Bold" size="12.0"/>
                                  </font>
                               </Label>
-                              <Label fx:id="group1AverageSem2" prefWidth="173.0" />
+                              <Label fx:id="group1AverageSem2" prefWidth="173.0"/>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0" spacing="10.0">
                            <children>
                               <Label prefWidth="100.0" text="Durchschnitt ">
                                  <font>
-                                    <Font name="System Bold" size="12.0" />
+                                    <Font name="System Bold" size="12.0"/>
                                  </font>
                               </Label>
-                              <Label fx:id="group2AverageLabel2" layoutX="10.0" layoutY="14.0" prefWidth="22.0" text="IT2:">
+                              <Label fx:id="group2AverageLabel2" layoutX="10.0" layoutY="14.0"
+                                     prefWidth="22.0" text="IT2:">
                                  <font>
-                                    <Font name="System Bold" size="12.0" />
+                                    <Font name="System Bold" size="12.0"/>
                                  </font>
                               </Label>
-                              <Label fx:id="group2AverageSem2" prefWidth="173.0" />
+                              <Label fx:id="group2AverageSem2" prefWidth="173.0"/>
                            </children>
                         </HBox>
                      </children>
@@ -344,7 +358,7 @@
             </HBox>
          </children>
          <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
          </padding>
       </VBox>
    </bottom>

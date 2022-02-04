@@ -16,23 +16,4 @@ public class CalculatorException extends Exception {
   public CalculatorException(String message) {
     super(message);
   }
-
-  /**
-   * Creates a ChatProtocolException with a throw message and cause.
-   *
-   * @param message the detail message
-   * @param cause   the cause why the exception was thrown
-   */
-  public CalculatorException(String message, Throwable cause) {
-    super(message, cause);
-  }
-
-  /**
-   * Creates a ChatProtocolException with a throw cause.
-   *
-   * @param cause the cause why the exception was thrown
-   */
-  public CalculatorException(Throwable cause) {
-    super(cause);
-  }
 }

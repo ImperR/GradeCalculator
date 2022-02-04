@@ -45,24 +45,6 @@ public class CalculatorLogger {
   }
 
   /**
-   * Adds an info message to the logger.
-   *
-   * @param message to add
-   */
-  public static void info(String message) {
-    LOGGER.info(message);
-  }
-
-  /**
-   * Adds a warning message to the logger.
-   *
-   * @param message to add
-   */
-  public static void warning(String message) {
-    LOGGER.warning(message);
-  }
-
-  /**
    * Adds an error message to the logger.
    *
    * @param message to add

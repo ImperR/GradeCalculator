@@ -1,44 +1,22 @@
 package ch.imper.calculator.uni;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
- * //ToDo Description of what this class does.
+ * This class represents one modul in a semester.
  *
  * @author Imper
  * @version 1.0
  */
 public class Module {
-  private String name;
-  private int credits;
-  private String group;
+  private final String name;
+  private final int credits;
+  private final String group;
   private double grade;
-
-  public Module(String name, int credits, String group, double grade) {
-    this.name = name;
-    this.credits = credits;
-    this.group = group;
-    this.grade = grade;
-  }
 
   public Module(String[] values) {
     name = values[0].trim();
     credits = Integer.parseInt(values[1].trim());
     group = values[2].trim();
     grade = Double.parseDouble(values[3].trim());
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public void setCredits(int credits) {
-    this.credits = credits;
-  }
-
-  public void setGroup(String group) {
-    this.group = group;
   }
 
   public void setGrade(double grade) {
