@@ -7,21 +7,15 @@ import ch.imper.calculator.uni.Module;
 import ch.imper.calculator.uni.Semester;
 import ch.imper.calculator.uni.StudyYear;
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
-import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -274,60 +268,6 @@ public class CalculatorViewController {
   @FXML
   void closeApp() {
     Platform.exit();
-  }
-
-  @FXML
-  void loadFirstSemester() throws CalculatorException {
-//    semesterBox.setValue(1);
-//    List<String> lines = FileHelper.loadTemplate(1);
-//    List<Module> modules = FileHelper.loadTemplates(1);
-//    addTemplateValues(lines);
-//    addTemplateValuess(modules);
-  }
-
-  @FXML
-  void loadSecondSemester() throws CalculatorException {
-//    semesterBox.setValue(2);
-//    List<String> lines = FileHelper.loadTemplate(2);
-//    List<Module> modules = FileHelper.loadTemplates(2);
-//    addTemplateValues(lines);
-//    addTemplateValuess(modules);
-  }
-
-  @FXML
-  void loadThirdSemester() throws CalculatorException {
-//    semesterBox.setValue(3);
-//    List<String> lines = FileHelper.loadTemplate(3);
-//    List<Module> modules = FileHelper.loadTemplates(3);
-//    addTemplateValues(lines);
-//    addTemplateValuess(modules);
-  }
-
-  @FXML
-  void loadFourthSemester() throws CalculatorException {
-//    semesterBox.setValue(4);
-//    List<String> lines = FileHelper.loadTemplate(4);
-//    List<Module> modules = FileHelper.loadTemplates(4);
-//    addTemplateValues(lines);
-//    addTemplateValuess(modules);
-  }
-
-  @FXML
-  void loadFifthSemester() throws CalculatorException {
-//    semesterBox.setValue(5);
-//    List<String> lines = FileHelper.loadTemplate(5);
-//    List<Module> modules = FileHelper.loadTemplates(5);
-//    addTemplateValues(lines);
-//    addTemplateValuess(modules);
-  }
-
-  @FXML
-  void loadSixthSemester() throws CalculatorException {
-//    semesterBox.setValue(6);
-//    List<String> lines = FileHelper.loadTemplate(6);
-//    List<Module> modules = FileHelper.loadTemplates(6);
-//    addTemplateValues(lines);
-//    addTemplateValuess(modules);
   }
 
   @FXML

@@ -62,39 +62,6 @@
                         <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
                      </accelerator></MenuItem>
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <Menu mnemonicParsing="false" text="Vorlage Laden">
-                    <items>
-                      <MenuItem mnemonicParsing="false" onAction="#loadFirstSemester" text="1. Semester">
-                           <accelerator>
-                              <KeyCodeCombination alt="UP" code="DIGIT1" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
-                           </accelerator></MenuItem>
-                        <MenuItem mnemonicParsing="false" onAction="#loadSecondSemester" text="2. Semester">
-                           <accelerator>
-                              <KeyCodeCombination alt="UP" code="DIGIT2" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
-                           </accelerator>
-                        </MenuItem>
-                        <MenuItem mnemonicParsing="false" onAction="#loadThirdSemester" text="3. Semester">
-                           <accelerator>
-                              <KeyCodeCombination alt="UP" code="DIGIT3" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
-                           </accelerator>
-                        </MenuItem>
-                        <MenuItem mnemonicParsing="false" onAction="#loadFourthSemester" text="4. Semester">
-                           <accelerator>
-                              <KeyCodeCombination alt="UP" code="DIGIT4" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
-                           </accelerator>
-                        </MenuItem>
-                        <MenuItem mnemonicParsing="false" onAction="#loadFifthSemester" text="5. Semester">
-                           <accelerator>
-                              <KeyCodeCombination alt="UP" code="DIGIT5" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
-                           </accelerator>
-                        </MenuItem>
-                        <MenuItem mnemonicParsing="false" onAction="#loadSixthSemester" text="6. Semester">
-                           <accelerator>
-                              <KeyCodeCombination alt="UP" code="DIGIT6" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
-                           </accelerator>
-                        </MenuItem>
-                    </items>
-                  </Menu>
                   <SeparatorMenuItem mnemonicParsing="false" />
                   <MenuItem mnemonicParsing="false" onAction="#closeApp" text="Schliessen">
                      <accelerator>
@@ -126,14 +93,14 @@
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="studyCourseBox" onAction="#setStudyTemplate" prefWidth="57.0" />
+                        <ComboBox fx:id="studyCourseBox" onAction="#setStudyTemplate" prefWidth="60.0" />
                         <Separator orientation="VERTICAL" prefHeight="200.0" />
                         <Label layoutX="100.0" layoutY="13.0" prefWidth="90.0" text="Studienjahr">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="studyYearBox" layoutX="190.0" layoutY="10.0" onAction="#setStudyTemplate" prefWidth="57.0" />
+                        <ComboBox fx:id="studyYearBox" layoutX="190.0" layoutY="10.0" onAction="#setStudyTemplate" prefWidth="60.0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" layoutX="340.0" layoutY="10.0" prefHeight="100.0" prefWidth="300.0">
