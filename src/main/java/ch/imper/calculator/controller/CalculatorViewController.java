@@ -7,6 +7,8 @@ import ch.imper.calculator.uni.Module;
 import ch.imper.calculator.uni.Semester;
 import ch.imper.calculator.uni.StudyYear;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
@@ -109,11 +111,13 @@ public class CalculatorViewController {
 
   @FXML
   void setStudyTemplate() throws CalculatorException {
-    setSemesterBox(studyYearBox.getValue());
+    int semester = studyYearBox.getValue() * 2;
+    setSemesterBox(semester);
+    semester1.setText(String.format("Semester %d:", semester-1));
+    semester2.setText(String.format("Semester %d:", semester));
   }
 
-  private void setSemesterBox(int studyYear) throws CalculatorException {
-    int semester = studyYear * 2;
+  private void setSemesterBox(int semester) throws CalculatorException {
     clearSemesterBoxes();
     createStudyYear(semester, StudyYear.StudyCourse.IT);
     addTemplateValuesToUI();
@@ -154,7 +158,7 @@ public class CalculatorViewController {
       hBox.getChildren().add(addModuleName(module.getName()));
       hBox.getChildren().add(addCreditsLabel(module.getCredits()));
       hBox.getChildren().add(addModuleGroupLabel(module.getGroup()));
-      hBox.getChildren().add(addGradeBox(module.getGrade()));
+      hBox.getChildren().add(addGradeBox(module));
       modules.add(hBox);
     }
     return modules;
@@ -195,13 +199,14 @@ public class CalculatorViewController {
     return groupLabel;
   }
 
-  private ComboBox<Double> addGradeBox(double grade) {
+  private ComboBox<Double> addGradeBox(Module module) {
     ComboBox<Double> gradeBox = new ComboBox<>();
     gradeBox.setPrefWidth(60);
+    gradeBox.valueProperty().addListener((observable, oldValue, newValue) -> module.setGrade(newValue));
     for (double d = 1.0; d <= 6; d += 0.5) {
       gradeBox.getItems().add(d);
     }
-    gradeBox.setValue(grade);
+    gradeBox.setValue(module.getGrade());
     return gradeBox;
   }
 
