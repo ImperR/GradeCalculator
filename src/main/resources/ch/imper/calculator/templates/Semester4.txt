@@ -1,0 +1,9 @@
+Wirtschaft für Ingenieure; 2; IT3; 4.0;
+Höhere Mathematik für Informatiker 2; 4; IT3; 4.0;
+Software Projekt 4; 4; IT4; 4.0;
+Software-Entwicklung 2; 2; IT4; 4.0;
+Betriebssysteme; 4; IT4; 4.0;
+Computertechnik 2; 4; IT4; 4.0;
+IT-Sicherheit; 4; IT4; 4.0;
+Maschinelles Lernen & Data Mining; 4; IT4; 4.0;
+Physik Engines; 2; IT4; 4.0;

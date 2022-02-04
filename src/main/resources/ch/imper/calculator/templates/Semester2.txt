@@ -1,0 +1,8 @@
+Communication Competence 2; 2; IT1; 4.0;
+Software Projekt 2; 4; IT1; 4.0;
+Programmieren 2; 4; IT1; 4.0;
+Theoretische Informatik; 4; IT1; 4.0;
+Analysis 2; 4; IT1; 4.0;
+Lineare Algebra; 4; IT1; 4.0;
+Systemnahe Programmierung; 4; IT2; 4.0;
+Kommunikationstechnik; 4; IT2; 4.0;

@@ -1,0 +1,6 @@
+Bachelorarbeit in Informatik; 12; No; 4.0;
+Wahlpflichtmodul; 2; IT5; 4.0;
+Wahlpflichtmodul 2; 4; IT6; 4.0;
+Wahlpflichtmodul 4; 4; IT6; 4.0;
+Wahlpflichtmodul 6; 4; IT6; 4.0;
+Wahlpflichtmodul 8; 4; IT6; 4.0;

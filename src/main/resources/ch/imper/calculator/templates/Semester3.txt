@@ -1,0 +1,8 @@
+Communication Competence 3; 2; IT3; 4.0;
+Software Projekt 3; 4; IT3; 4.0;
+Software-Entwicklung 1; 4; IT3; 4.0;
+Algorithmen & Datenstrukturen; 4; IT3; 4.0;
+Stochastik und Statistik; 4; IT3; 4.0;
+Höhere Mathematik für Informatiker; 4; IT3; 4.0;
+Web-Entwicklung; 4; IT4; 4.0;
+Computertechnik 1; 4; IT4; 4.0;
