@@ -195,7 +195,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="25.0" prefWidth="980.0" spacing="180.0">
                <children>
-                  <Button layoutX="496.0" layoutY="10.0" mnemonicParsing="false" onAction="#resetGrades1"
+                  <Button layoutX="496.0" layoutY="10.0" mnemonicParsing="false" onAction="#resetGradesSem1"
                           text="Noten Zurücksetzten"/>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                      <children>
@@ -205,7 +205,7 @@
                                 prefWidth="72.0" text="Speichern"/>
                      </children>
                   </HBox>
-                  <Button layoutX="345.0" layoutY="10.0" mnemonicParsing="false" onAction="#resetGrades2"
+                  <Button layoutX="345.0" layoutY="10.0" mnemonicParsing="false" onAction="#resetGradesSem2"
                           text="Noten Zurücksetzten"/>
                </children>
             </HBox>

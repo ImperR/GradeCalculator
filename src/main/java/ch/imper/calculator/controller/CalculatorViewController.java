@@ -333,10 +333,20 @@ public class CalculatorViewController {
   }
 
   @FXML
-  void resetGrades1() {
+  void resetGradesSem1() {
+    for (int i = 1; i < semesterBox1.getChildren().size() - 1; i++) {
+      HBox hBox = (HBox) semesterBox1.getChildren().get(i);
+      ComboBox<Double> grades = (ComboBox<Double>) hBox.getChildren().get(3);
+      grades.setValue(4.0);
+    }
   }
 
   @FXML
-  void resetGrades2() {
+  void resetGradesSem2() {
+    for (int i = 1; i < semesterBox2.getChildren().size() - 1; i++) {
+      HBox hBox = (HBox) semesterBox2.getChildren().get(i);
+      ComboBox<Double> grades = (ComboBox<Double>) hBox.getChildren().get(3);
+      grades.setValue(4.0);
+    }
   }
 }
