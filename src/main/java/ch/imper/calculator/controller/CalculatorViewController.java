@@ -105,28 +105,46 @@ public class CalculatorViewController {
 
   @FXML
   void setStudyTemplate() throws CalculatorException {
-    int semester = studyYearBox.getValue() * 2;
-    setSemesterBox(semester);
-    semester1.setText(String.format("Semester %d:", semester-1));
-    semester2.setText(String.format("Semester %d:", semester));
+    setSemesterBox(studyYearBox.getValue());
   }
 
-  private void setSemesterBox(int semester) throws CalculatorException {
+  private void setSemesterBox(int year) throws CalculatorException {
     clearSemesterBoxes();
-    createStudyYear(semester, StudyYear.StudyCourse.IT);
+    createStudyYear(year, StudyYear.StudyCourse.IT);
     addTemplateValuesToUI();
   }
 
-  public void createStudyYear(int semester, StudyYear.StudyCourse course) {
+  public void createStudyYear(int year, StudyYear.StudyCourse course) throws CalculatorException {
+    int semester = year*2;
     Semester semester1 = new Semester(semester-1);
     Semester semester2 = new Semester(semester);
-    semester1.addModules(FileHelper.loadTemplates(semester-1));
-    semester2.addModules(FileHelper.loadTemplates(semester));
-    year = new StudyYear(course, semester1, semester2);
-    changeAverageGroupLabel(semester);
+    List<String> linesOfYear = FileHelper.loadTemplate(course.getAcronym(), year);
+    semester1.addModules(getSemester(true, linesOfYear));
+    semester2.addModules(getSemester(false, linesOfYear));
+    this.year = new StudyYear(course, semester1, semester2);
+    changeLabels(semester);
   }
 
-  private void changeAverageGroupLabel(int semester) {
+  private List<Module> getSemester(boolean isFirst, List<String> linesOfYear) throws CalculatorException {
+    List<Module> modules = new ArrayList<>();
+    for (String line : linesOfYear) {
+      if (isFirst && !line.isBlank()) {
+          String[] values = line.split(SPLIT_REGEX);
+          if (values.length != 4) {
+            throw new CalculatorException("Template File not correct");
+          }
+          modules.add(new Module(values));
+      }
+      if (line.isBlank()) {
+        isFirst = !isFirst;
+      }
+    }
+    return modules;
+  }
+
+  private void changeLabels(int semester) {
+    semester1.setText(String.format("Semester %d:", semester-1));
+    semester2.setText(String.format("Semester %d:", semester));
     group1AverageLabel.setText(year.getCourse().getAcronym() + (semester-1));
     group2AverageLabel.setText(year.getCourse().getAcronym() + semester);
     group1AverageLabel1.setText(year.getCourse().getAcronym() + (semester-1));
@@ -135,7 +153,7 @@ public class CalculatorViewController {
     group2AverageLabel2.setText(year.getCourse().getAcronym() + semester);
   }
 
-  private void addTemplateValuesToUI(/*List<String> lines, int semester*/) throws CalculatorException {
+  private void addTemplateValuesToUI() {
     clearSemesterBoxes();
     addLineSeparatorToSemesterBoxes(0);
     semesterBox1.getChildren().addAll(createModuleBoxes(year.getSemester1()));

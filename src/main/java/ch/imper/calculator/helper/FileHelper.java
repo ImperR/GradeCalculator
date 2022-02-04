@@ -25,31 +25,15 @@ import java.util.Scanner;
  * @version 1.0
  */
 public class FileHelper {
-  private static final String TEMPLATE_LOCATION = "templates/IT/Semester";
+  private static final String TEMPLATE_LOCATION = "templates/";
 
-  public static List<String> loadTemplate(int semester) {
+  public static List<String> loadTemplate(String location, int year) {
     List<String> lines = new ArrayList<>();
-    File template = new File(Objects.requireNonNull(CalculatorUI.class.getResource(TEMPLATE_LOCATION + semester + ".txt")).getPath());
+    File template = new File(Objects.requireNonNull(CalculatorUI.class.getResource(TEMPLATE_LOCATION + location + "/Year" + year + ".txt")).getPath());
     try {
       Scanner scanner = new Scanner(template, StandardCharsets.ISO_8859_1);
       while (scanner.hasNextLine()) {
         lines.add(scanner.nextLine());
-      }
-    } catch (IOException e) {
-      CalculatorLogger.error(e.getMessage());
-    }
-    return lines;
-  }
-
-  public static List<Module> loadTemplates(int semester) {
-    List<Module> lines = new ArrayList<>();
-    File template = new File(Objects.requireNonNull(CalculatorUI.class.getResource(TEMPLATE_LOCATION + semester + ".txt")).getPath());
-    try {
-      Scanner scanner = new Scanner(template, StandardCharsets.ISO_8859_1);
-      while (scanner.hasNextLine()) {
-        String[] line = scanner.nextLine().split(CalculatorViewController.SPLIT_REGEX);
-        Module module = new Module(line[0].trim(), Integer.parseInt(line[1].trim()), line[2].trim(), Double.parseDouble(line[3].trim()));
-        lines.add(module);
       }
     } catch (IOException e) {
       CalculatorLogger.error(e.getMessage());
