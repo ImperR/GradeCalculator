@@ -2,7 +2,7 @@ package ch.imper.calculator.helper;
 
 import ch.imper.calculator.CalculatorUI;
 import ch.imper.calculator.controller.CalculatorViewController;
-import ch.imper.calculator.module.Module;
+import ch.imper.calculator.uni.Module;
 import ch.imper.calculator.logger.CalculatorLogger;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -25,7 +25,7 @@ import java.util.Scanner;
  * @version 1.0
  */
 public class FileHelper {
-  private static final String TEMPLATE_LOCATION = "templates/Semester";
+  private static final String TEMPLATE_LOCATION = "templates/IT/Semester";
 
   public static List<String> loadTemplate(int semester) {
     List<String> lines = new ArrayList<>();
