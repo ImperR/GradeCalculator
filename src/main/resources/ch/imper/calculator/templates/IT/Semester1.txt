@@ -1,8 +1,0 @@
-Communication Competence 1; 2; IT1; 4.0;
-Software Projekt 1; 4; IT1; 4.0;
-Programmieren 1; 4; IT1; 4.0;
-Information & Codierung; 4; IT1; 4.0;
-Analysis 1; 4; IT1; 4.0;
-Diskrete Mathematik; 4; IT1; 4.0;
-Datenbanken; 4; IT2; 4.0;
-Grundlagen der Elektrotechnik; 4; IT2; 4.0;
