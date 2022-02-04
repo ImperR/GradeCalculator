@@ -17,50 +17,44 @@ public class Calculator {
 
   public List<Double> calculateAverage(List<Module> modules) {
     List<Double> averageGrades = new ArrayList<>();
-    List<Double> grades = getAllGrades(modules);
-    List<Double> group1Grades = getGroup1Grades(modules);
-    List<Double> group2Grades = getGroup2Grades(modules);
-    averageGrades.add(calculateAverageGrade(grades));
-    averageGrades.add(calculateAverageGrade(group1Grades));
-    averageGrades.add(calculateAverageGrade(group2Grades));
+    List<Module> group1Modules = getGroup1Modules(modules);
+    List<Module> group2Modules = getGroup2Modules(modules);
+    averageGrades.add(calculateAverageGrades(modules));
+    averageGrades.add(calculateAverageGrades(group1Modules));
+    averageGrades.add(calculateAverageGrades(group2Modules));
+
     return averageGrades;
   }
 
-  private Double calculateAverageGrade(List<Double> grades) {
-    double average = 0.0;
-    for (Double grade : grades) {
-      average += grade;
-    }
-    return average / grades.size();
-  }
-
-  private List<Double> getAllGrades(List<Module> modules) {
-    List<Double> grades = new ArrayList<>();
+  private Double calculateAverageGrades(List<Module> modules) {
+    double gradePoints = 0.0;
+    int credits = 0;
     for (Module module : modules) {
-      grades.add(module.getGrade());
+      gradePoints += module.getGrade() * module.getCredits();
+      credits += module.getCredits();
     }
-    return grades;
+    return gradePoints / credits;
   }
 
-  private List<Double> getGroup1Grades(List<Module> modules) {
-    List<Double> grades = new ArrayList<>();
+  private List<Module> getGroup1Modules(List<Module> modules) {
+    List<Module> modulGroupList = new ArrayList<>();
     for (Module module : modules) {
       String group = module.getGroup();
       if (group.equals("IT1") || group.equals("IT3") || group.equals("IT5")) {
-        grades.add(module.getGrade());
+        modulGroupList.add(module);
       }
     }
-    return grades;
+    return modulGroupList;
   }
 
-  private List<Double> getGroup2Grades(List<Module> modules) {
-    List<Double> grades = new ArrayList<>();
+  private List<Module> getGroup2Modules(List<Module> modules) {
+    List<Module> modulGroupList = new ArrayList<>();
     for (Module module : modules) {
       String group = module.getGroup();
       if (group.equals("IT2") || group.equals("IT4") || group.equals("IT6")) {
-        grades.add(module.getGrade());
+        modulGroupList.add(module);
       }
     }
-    return grades;
+    return modulGroupList;
   }
 }
