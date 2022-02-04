@@ -77,7 +77,7 @@
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="980.0" spacing="10.0">
                <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="300.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="240.0">
                      <children>
                         <Label fx:id="semester1" prefWidth="80.0" text="Semester 1">
                            <font>
@@ -86,7 +86,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="360.0" spacing="10.0">
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="480.0" spacing="10.0">
                      <children>
                         <Label prefWidth="90.0" text="Studiengang">
                            <font>
@@ -94,16 +94,16 @@
                            </font>
                         </Label>
                         <ComboBox fx:id="studyCourseBox" onAction="#setStudyTemplate" prefWidth="60.0" />
-                        <Separator orientation="VERTICAL" prefHeight="200.0" />
                         <Label layoutX="100.0" layoutY="13.0" prefWidth="90.0" text="Studienjahr">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Label>
                         <ComboBox fx:id="studyYearBox" layoutX="190.0" layoutY="10.0" onAction="#setStudyTemplate" prefWidth="60.0" />
+                        <Button mnemonicParsing="false" onAction="#loadOwnGrades" text="Eigene Vorlage laden" />
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_RIGHT" layoutX="340.0" layoutY="10.0" prefHeight="100.0" prefWidth="300.0">
+                  <HBox alignment="CENTER_RIGHT" layoutX="340.0" layoutY="10.0" prefHeight="100.0" prefWidth="240.0">
                      <children>
                         <Label fx:id="semester2" prefWidth="80.0" text="Semester 2">
                            <font>
@@ -195,7 +195,12 @@
             <HBox alignment="CENTER" prefHeight="25.0" prefWidth="980.0" spacing="180.0">
                <children>
                   <Button layoutX="496.0" layoutY="10.0" mnemonicParsing="false" onAction="#resetGrades1" text="Noten Zurücksetzten" />
-                  <Button mnemonicParsing="false" onAction="#calculateGrades" text="Berechnen" />
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#calculateGrades" prefWidth="72.0" text="Berechnen" />
+                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#saveGrades" prefWidth="72.0" text="Speichern" />
+                     </children>
+                  </HBox>
                   <Button layoutX="345.0" layoutY="10.0" mnemonicParsing="false" onAction="#resetGrades2" text="Noten Zurücksetzten" />
                </children>
             </HBox>

@@ -16,6 +16,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -105,20 +106,47 @@ public class CalculatorViewController {
 
   @FXML
   void setStudyTemplate() throws CalculatorException {
-    setSemesterBox(studyYearBox.getValue());
+    setSemesterBoxes(studyYearBox.getValue(), getStudyCourse(), null);
   }
 
-  private void setSemesterBox(int year) throws CalculatorException {
+  private StudyYear.StudyCourse getStudyCourse() throws CalculatorException {
+    switch (studyCourseBox.getValue()) {
+      case "AV":
+        return StudyYear.StudyCourse.AV;
+      case "DS":
+        return StudyYear.StudyCourse.DS;
+      case "ET":
+        return StudyYear.StudyCourse.ET;
+      case "EU":
+        return StudyYear.StudyCourse.EU;
+      case "IT":
+        return StudyYear.StudyCourse.IT;
+      case "MT":
+        return StudyYear.StudyCourse.MT;
+      case "ST":
+        return StudyYear.StudyCourse.ST;
+      case "VS":
+        return StudyYear.StudyCourse.VS;
+      case "WI":
+        return StudyYear.StudyCourse.WI;
+      default:
+        throw new CalculatorException(String.format("No known course existing for '%s'", studyCourseBox.getValue()));
+    }
+  }
+
+  private void setSemesterBoxes(int year, StudyYear.StudyCourse course, List<String> linesOfYear) throws CalculatorException {
     clearSemesterBoxes();
-    createStudyYear(year, StudyYear.StudyCourse.IT);
+    createStudyYear(year, course, linesOfYear);
     addTemplateValuesToUI();
   }
 
-  public void createStudyYear(int year, StudyYear.StudyCourse course) throws CalculatorException {
+  private void createStudyYear(int year, StudyYear.StudyCourse course, List<String> linesOfYear) throws CalculatorException {
+    if (linesOfYear == null) {
+      linesOfYear = FileHelper.loadTemplate(course.getAcronym(), year);
+    }
     int semester = year*2;
     Semester semester1 = new Semester(semester-1);
     Semester semester2 = new Semester(semester);
-    List<String> linesOfYear = FileHelper.loadTemplate(course.getAcronym(), year);
     semester1.addModules(getSemester(true, linesOfYear));
     semester2.addModules(getSemester(false, linesOfYear));
     this.year = new StudyYear(course, semester1, semester2);
@@ -274,13 +302,24 @@ public class CalculatorViewController {
 
   @FXML
   void loadOwnGrades() throws CalculatorException {
-//    fileChooser.setInitialDirectory(new File("C:"));
-//    fileChooser.setTitle("Laden");
-//    File file = fileChooser.showOpenDialog(null);
-//    List<String> lines = FileHelper.loadFile(file);
-//    modulePerSemester = lines.size();
-//    addModuleBox();
-//    addTemplateValues(lines);
+    fileChooser.setInitialDirectory(new File("C:"));
+    fileChooser.setTitle("Laden");
+    File file = fileChooser.showOpenDialog(null);
+    List<String> lines = FileHelper.loadFile(file);
+    String group = lines.get(2).split(SPLIT_REGEX)[2].trim();
+    setSemesterBoxes(getYear(group), getCourse(group), lines);
+  }
+
+  private int getYear(String group) {
+    int year = (Integer.parseInt(group.substring(group.length()-1))+1) / 2;
+    studyYearBox.setValue(year);
+    return year;
+  }
+
+  private StudyYear.StudyCourse getCourse(String group) {
+    String pattern = group.substring(0, group.length()-1);
+    studyCourseBox.setValue(pattern);
+    return year.findCourse(pattern);
   }
 
   @FXML

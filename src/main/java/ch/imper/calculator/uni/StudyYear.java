@@ -51,6 +51,15 @@ public class StudyYear {
     this.course = course;
   }
 
+  public StudyCourse findCourse(String pattern) {
+    for (StudyCourse value : StudyCourse.values()) {
+      if (value.acronym.equals(pattern)) {
+        return value;
+      }
+    }
+    return StudyCourse.IT;
+  }
+
 
   public static List<String> getAllCourses() {
     List<String> courses = new ArrayList<>();
