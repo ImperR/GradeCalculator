@@ -203,7 +203,7 @@ public class CalculatorViewController {
     ComboBox<Double> gradeBox = new ComboBox<>();
     gradeBox.setPrefWidth(60);
     gradeBox.valueProperty().addListener((observable, oldValue, newValue) -> module.setGrade(newValue));
-    for (double d = 1.0; d <= 6; d += 0.5) {
+    for (double d = 6.0; d >= 1; d -= 0.5) {
       gradeBox.getItems().add(d);
     }
     gradeBox.setValue(module.getGrade());
