@@ -320,10 +320,9 @@ public class CalculatorViewController {
     List<String> lines = FileHelper.getLinesFromList(year.getSemester1().getModuleList());
     lines.add("");
     lines.addAll(FileHelper.getLinesFromList(year.getSemester2().getModuleList()));
-    for (String line : lines) {
-      System.out.println(line);
-    }
     fileChooser.setTitle("Speichern");
+    fileChooser.setInitialFileName("*.txt");
+    fileChooser.setInitialDirectory(new File(String.format("%s/Documents", System.getProperty("user.home"))));
     File file = fileChooser.showSaveDialog(null);
     if (!FileHelper.saveFile(file, lines)) {
       gradeAverage.setText("File konnte nicht gespeichert werden");
@@ -335,6 +334,7 @@ public class CalculatorViewController {
   void loadOwnGrades() throws CalculatorException {
     fileChooser.setInitialDirectory(new File("C:"));
     fileChooser.setTitle("Laden");
+    fileChooser.setInitialDirectory(new File(String.format("%s/Documents", System.getProperty("user.home"))));
     File file = fileChooser.showOpenDialog(null);
     List<String> lines = FileHelper.loadFile(file);
     String group = lines.get(2).split(SPLIT_REGEX)[2].trim();
