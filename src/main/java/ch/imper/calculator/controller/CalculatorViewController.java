@@ -251,7 +251,7 @@ public class CalculatorViewController {
   }
 
   @FXML
-  void calculateGrades() {
+  void calculateGrades() throws CalculatorException {
     if (areCreditsOkay()) {
       List<Double> averageGradesList = calculator.calculateAverage(year.getAllModules());
       List<Double> averageSem1List = calculator.calculateAverage(year.getSemester1().getModuleList());
@@ -263,19 +263,45 @@ public class CalculatorViewController {
     }
   }
 
-  private void showGradesOnUI(List<Double> averageGradesList, List<Double> averageSem1List, List<Double> averageSem2List) {
-    gradeAverage.setStyle("-fx-text-fill: black");
-    gradeAverage.setText(String.format("%.2f", averageGradesList.get(0)));
-    group1Average.setText(String.format("%.2f", averageGradesList.get(1)));
-    group2Average.setText(String.format("%.2f", averageGradesList.get(2)));
+  private void showGradesOnUI(List<Double> averageGradesList, List<Double> averageSem1List, List<Double> averageSem2List) throws CalculatorException {
+    double avg0 = averageGradesList.get(0);
+    double avg1 = averageGradesList.get(1);
+    double avg2 = averageGradesList.get(2);
+    showGrades(0, avg0, avg1, avg2);
 
-    gradeAverageSem1.setText(String.format("%.2f", averageSem1List.get(0)));
-    group1AverageSem1.setText(String.format("%.2f", averageSem1List.get(1)));
-    group2AverageSem1.setText(String.format("%.2f", averageSem1List.get(2)));
+    avg0 = averageSem1List.get(0);
+    avg1 = averageSem1List.get(1);
+    avg2 = averageSem1List.get(2);
+    showGrades(1, avg0, avg1, avg2);
 
-    gradeAverageSem2.setText(String.format("%.2f", averageSem2List.get(0)));
-    group1AverageSem2.setText(String.format("%.2f", averageSem2List.get(1)));
-    group2AverageSem2.setText(String.format("%.2f", averageSem2List.get(2)));
+    avg0 = averageSem2List.get(0);
+    avg1 = averageSem2List.get(1);
+    avg2 = averageSem2List.get(2);
+    showGrades(2, avg0, avg1, avg2);
+  }
+
+  /**
+   * @param semester this parameter tells which semester is meant (0; the whole year, 1; Semester 1 of the year, 2; Semester 2 of the year)
+   */
+  private void showGrades(int semester, double avg, double avg1, double avg2) throws CalculatorException {
+    Label whole, sem1, sem2;
+    if (semester == 0) {
+      whole = gradeAverage;
+      sem1 = group1Average;
+      sem2 = group2Average;
+    } else if (semester == 1 || semester == 2) {
+      whole = (semester == 1) ? gradeAverageSem1 : gradeAverageSem2;
+      sem1 = (semester == 1) ? group1AverageSem1 : group1AverageSem2;
+      sem2 = (semester == 1) ? group2AverageSem1 : group2AverageSem2;
+    } else {
+      throw new CalculatorException(String.format("The semester can only be in range 0-2, not %s!", semester));
+    }
+    whole.setStyle((avg1 < 4.0 || avg2 < 4.0)? "-fx-text-fill: red" : "-fx-text-fill: green");
+    sem1.setStyle(avg1 < 4.0 ? "-fx-text-fill: red" : "-fx-text-fill: green");
+    sem2.setStyle(avg2 < 4.0 ? "-fx-text-fill: red" : "-fx-text-fill: green");
+    whole.setText(String.format("%.2f", avg));
+    sem1.setText(String.format("%.2f", avg1));
+    sem2.setText(String.format("%.2f", avg2));
   }
 
   private boolean areCreditsOkay() {
