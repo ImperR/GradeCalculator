@@ -48,7 +48,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.imper.calculator.controller.CalculatorViewController">
+
+<BorderPane maxHeight="550.0" maxWidth="1000.0" minHeight="550.0" minWidth="1000.0" prefHeight="550.0" prefWidth="1000.0"
+            xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.imper.calculator.controller.CalculatorViewController">
    <top>
       <MenuBar prefHeight="26.0" BorderPane.alignment="CENTER">
          <menus>
@@ -221,7 +223,8 @@
                               <Label fx:id="gradeAverageSem1" prefWidth="173.0">
                                  <cursor>
                                     <Cursor fx:constant="DEFAULT" />
-                                 </cursor></Label>
+                                 </cursor>
+                              </Label>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0" spacing="10.0">
@@ -239,7 +242,8 @@
                               <Label fx:id="group1AverageSem1" prefWidth="173.0">
                                  <cursor>
                                     <Cursor fx:constant="DEFAULT" />
-                                 </cursor></Label>
+                                 </cursor>
+                              </Label>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0" spacing="10.0">
@@ -257,7 +261,8 @@
                               <Label fx:id="group2AverageSem1" prefWidth="173.0">
                                  <cursor>
                                     <Cursor fx:constant="DEFAULT" />
-                                 </cursor></Label>
+                                 </cursor>
+                              </Label>
                            </children>
                         </HBox>
                      </children>
@@ -278,7 +283,8 @@
                                  </cursor>
                                  <font>
                                     <Font name="System Bold" size="12.0" />
-                                 </font></Label>
+                                 </font>
+                              </Label>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0" spacing="10.0">
@@ -299,7 +305,8 @@
                                  </cursor>
                                  <font>
                                     <Font name="System Bold" size="12.0" />
-                                 </font></Label>
+                                 </font>
+                              </Label>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0" spacing="10.0">
@@ -320,7 +327,8 @@
                                  </cursor>
                                  <font>
                                     <Font name="System Bold" size="12.0" />
-                                 </font></Label>
+                                 </font>
+                              </Label>
                            </children>
                         </HBox>
                      </children>
@@ -338,7 +346,8 @@
                               <Label fx:id="gradeAverageSem2" prefWidth="173.0">
                                  <cursor>
                                     <Cursor fx:constant="DEFAULT" />
-                                 </cursor></Label>
+                                 </cursor>
+                              </Label>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0" spacing="10.0">
@@ -356,7 +365,8 @@
                               <Label fx:id="group1AverageSem2" prefWidth="173.0">
                                  <cursor>
                                     <Cursor fx:constant="DEFAULT" />
-                                 </cursor></Label>
+                                 </cursor>
+                              </Label>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0" spacing="10.0">
@@ -374,7 +384,8 @@
                               <Label fx:id="group2AverageSem2" prefWidth="173.0">
                                  <cursor>
                                     <Cursor fx:constant="DEFAULT" />
-                                 </cursor></Label>
+                                 </cursor>
+                              </Label>
                            </children>
                         </HBox>
                      </children>
