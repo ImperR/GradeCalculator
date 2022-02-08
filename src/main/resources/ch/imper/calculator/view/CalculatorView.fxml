@@ -48,7 +48,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane maxHeight="550.0" maxWidth="1000.0" minHeight="550.0" minWidth="1000.0" prefHeight="550.0" prefWidth="1000.0"
             xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.imper.calculator.controller.CalculatorViewController">
    <top>
@@ -64,6 +63,11 @@
                   <MenuItem mnemonicParsing="false" onAction="#loadOwnGrades" text="Öffnen">
                      <accelerator>
                         <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#calculateGrades" text="Berechnen">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="ENTER" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
                      </accelerator>
                   </MenuItem>
                   <SeparatorMenuItem mnemonicParsing="false" />

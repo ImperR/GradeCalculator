@@ -8,11 +8,6 @@ plugins {
 group 'ch.imper'
 version '1.0-SNAPSHOT'
 
-repositories {
-    // Use JCenter for resolving dependencies.
-    jcenter()
-}
-
 dependencies {
     // Use JUnit Jupiter API for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
@@ -37,7 +32,6 @@ javafx {
 }
 
 launch4j {
-    headerType="gui"
     mainClassName = 'ch.imper.calculator.CalculatorApp'
     outfile = "Calculator.exe"
     productName = "Calculator"

@@ -2,8 +2,6 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/main/java/ch/imper/calculator/controller/CalculatorViewController.java" charset="ISO-8859-1" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/ch/imper/calculator/templates/IT/Semester3.txt" charset="ISO-8859-1" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/ch/imper/calculator/templates/IT/Semester4.txt" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/src/main/resources/ch/imper/calculator/templates/IT/Year1.txt" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/src/main/resources/ch/imper/calculator/templates/IT/Year2.txt" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/src/main/resources/ch/imper/calculator/templates/IT/Year3.txt" charset="ISO-8859-1" />

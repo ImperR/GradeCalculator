@@ -25,7 +25,8 @@ public class FileHelper {
 
   public static List<String> loadTemplate(String location, int year) {
     List<String> lines = new ArrayList<>();
-    File template = new File(Objects.requireNonNull(CalculatorUI.class.getResource(TEMPLATE_LOCATION + location + "/Year" + year + ".txt")).getPath());
+    File template = new File(Objects.requireNonNull(CalculatorUI.class.getResource(
+        String.format("%s%s/Year%d.txt", TEMPLATE_LOCATION, location, year))).getPath());
     try {
       Scanner scanner = new Scanner(template, StandardCharsets.ISO_8859_1);
       while (scanner.hasNextLine()) {
