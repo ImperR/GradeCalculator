@@ -49,7 +49,7 @@
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="550.0" maxWidth="1000.0" minHeight="550.0" minWidth="1000.0" prefHeight="550.0" prefWidth="1000.0"
-            xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.imper.calculator.controller.CalculatorViewController">
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.imper.calculator.controller.CalculatorViewController">
    <top>
       <MenuBar prefHeight="26.0" BorderPane.alignment="CENTER">
          <menus>
